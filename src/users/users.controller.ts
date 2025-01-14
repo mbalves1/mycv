@@ -18,6 +18,11 @@ import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { UserDto } from 'src/users/dtos/user.dto';
 import { AuthService } from './auth.service';
 
+export interface SigninDto {
+  email: string;
+  password: string;
+}
+
 @Controller('auth')
 @Serialize(UserDto)
 export class UsersController {
@@ -30,6 +35,11 @@ export class UsersController {
   createUser(@Body() body: CreateUserDto) {
     console.log('body', body);
     return this.authsService.signup(body.email, body.password, body.name);
+  }
+
+  @Post('/signin')
+  signin(@Body() body: SigninDto) {
+    return this.authsService.signin(body.email, body.password);
   }
 
   // @UseInterceptors(new SerializeInterceptor(UserDto))
