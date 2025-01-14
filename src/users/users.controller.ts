@@ -16,16 +16,20 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { UserDto } from 'src/users/dtos/user.dto';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 @Serialize(UserDto)
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private authsService: AuthService,
+  ) {}
 
   @Post('/signup')
   createUser(@Body() body: CreateUserDto) {
     console.log('body', body);
-    return this.usersService.create(body.email, body.password, body.name);
+    return this.authsService.signup(body.email, body.password, body.name);
   }
 
   // @UseInterceptors(new SerializeInterceptor(UserDto))
