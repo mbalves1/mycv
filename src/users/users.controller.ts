@@ -41,14 +41,21 @@ export class UsersController {
   }
 
   @Post('/signup')
-  createUser(@Body() body: CreateUserDto) {
-    console.log('body', body);
-    return this.authsService.signup(body.email, body.password, body.name);
+  async createUser(@Body() body: CreateUserDto, @Session() session: any) {
+    const user = await this.authsService.signup(
+      body.email,
+      body.password,
+      body.name,
+    );
+    session.userId = user.id;
+    return user;
   }
 
   @Post('/signin')
-  signin(@Body() body: SigninDto) {
-    return this.authsService.signin(body.email, body.password);
+  async signin(@Body() body: SigninDto, @Session() session: any) {
+    const user = await this.authsService.signin(body.email, body.password);
+    session.userId = user.id;
+    return user;
   }
 
   // @UseInterceptors(new SerializeInterceptor(UserDto))
