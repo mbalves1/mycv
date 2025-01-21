@@ -56,7 +56,7 @@ GET http://localhost:3000/auth/colors
 GET http://localhost:3000/auth/colors/red
 
 ### Get the currently signes in user
-GET http://localhost:3000/auth/whoami
+GET http://localhost:3000/auth/whoiam
 
 ### Signout
 POST http://localhost:3000/auth/signout
