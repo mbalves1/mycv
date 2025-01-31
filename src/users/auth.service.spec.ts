@@ -62,4 +62,13 @@ describe('AuthService', () => {
       service.signup('new@email.com', 'password', 'name'),
     ).resolves.not.toThrow();
   });
+
+  it('throws if sigin is called with an unused email', async () => {
+    fakeUsersService.find = () => Promise.resolve([]);
+
+    // Verificando se a função signin lança um erro quando o email não está cadastrado
+    await expect(
+      service.signin('unused@email.com', 'password'),
+    ).rejects.toThrow('User not found!');
+  });
 });
