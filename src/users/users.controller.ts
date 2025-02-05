@@ -14,12 +14,12 @@ import {
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
-// import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { UserDto } from 'src/users/dtos/user.dto';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
-// import { AuthGuard } from 'src/guards/auth.guard';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 export interface SigninDto {
   email: string;
@@ -27,7 +27,7 @@ export interface SigninDto {
 }
 
 @Controller('auth')
-// @Serialize(UserDto)
+@Serialize(UserDto)
 export class UsersController {
   constructor(
     private usersService: UsersService,
@@ -50,7 +50,7 @@ export class UsersController {
   // }
 
   @Get('/whoiam')
-  // @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard)
   whoAmI(@CurrentUser() user: User) {
     return user;
   }
