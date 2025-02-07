@@ -18,7 +18,7 @@ describe('Authentication system', () => {
   it('handles a signup request', () => {
     return request(app.getHttpServer())
       .post('/auth/signup')
-      .send({ email: 'asd@asd.com', password: 'asdf' })
+      .send({ email: 'asd@asd.com', password: 'asdf', name: 'asd' })
       .expect(201)
       .then((res) => {
         const { id, email } = res.body;
