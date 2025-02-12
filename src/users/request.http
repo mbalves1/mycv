@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
-  "name": "Maya2",
-  "email": "maya2@gmail.com",
+  "name": "Maya1",
+  "email": "maya1@gmail.com",
   "password": "12"
 }
 
@@ -22,7 +22,7 @@ POST http://localhost:3000/auth/signin
 content-type: application/json
 
 {
-  "email": "maya2@gmail.com",
+  "email": "maya1@gmail.com",
   "password": "12"
 }
 
