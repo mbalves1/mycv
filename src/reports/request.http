@@ -3,10 +3,18 @@ content-type: application/json
 
 {
   "make": "vw",
-  "model": "golf",
-  "year": 1992,
+  "model": "gol",
+  "year": 1986,
   "mileage": 2000,
   "lat": 0,
   "lng": 0,
-  "price": 10101
+  "price": 7500
+}
+
+### Approve an existing report
+PATCH  http://localhost:3000/reports/8
+content-type: application/json
+
+{
+  "approved": false
 }
