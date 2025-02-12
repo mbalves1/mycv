@@ -3,10 +3,10 @@ content-type: application/json
 
 {
   "make": "vw",
-  "model": "gol",
-  "year": 1980,
+  "model": "golf",
+  "year": 1992,
   "mileage": 2000,
   "lat": 0,
   "lng": 0,
-  "price": 50000
+  "price": 10101
 }
