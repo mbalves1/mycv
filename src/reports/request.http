@@ -4,7 +4,7 @@ content-type: application/json
 {
   "make": "vw",
   "model": "gol",
-  "year": 1986,
+  "year": 1970,
   "mileage": 2000,
   "lat": 0,
   "lng": 0,
@@ -12,7 +12,7 @@ content-type: application/json
 }
 
 ### Approve an existing report
-PATCH  http://localhost:3000/reports/8
+PATCH  http://localhost:3000/reports/1
 content-type: application/json
 
 {
