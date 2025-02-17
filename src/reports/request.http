@@ -20,4 +20,4 @@ content-type: application/json
 }
 
 ### Get ab estimate for an existing vehicle
-GET http://localhost:3000/reports?make=vw&model=gol&lat=0&lng=0&mileage=2000&year=1970
+GET http://localhost:3000/reports?make=ford&model=gol&lat=0&lng=0&mileage=2000&year=1970
